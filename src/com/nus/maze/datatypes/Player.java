@@ -27,7 +27,7 @@ public class Player {
 
     public void setCurrentPosition(Cell currentPosition) {
         this.currentPosition = currentPosition;
-        this.currentPosition.setData("P" + id);
+        this.currentPosition.setData("(P" + id +")");
     }
 
     public int getNumOfTreasuresFound() {

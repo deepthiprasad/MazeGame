@@ -151,12 +151,16 @@ public class PlayerHandlerThread implements Runnable {
 
     private void moveAndCaptureTreasure(Cell cell) {
         if(!cell.getData().contains("P")){
-            if( (cell.getData().contains("T"))){
+            if(cell.getData().contains("T")){
+                int treasureRemaining = game.getTreasureInfo().getTreasureRemaining();
+                int currentCellTreasureValue = ServerHelper.getTreasureValue(cell);
                 player.setNumOfTreasuresFound(player.getNumOfTreasuresFound()+ ServerHelper.getTreasureValue(cell));
+                game.getTreasureInfo().setTreasureRemaining(treasureRemaining - currentCellTreasureValue);
             }
-            player.getCurrentPosition().setData("-");
+            player.getCurrentPosition().setData(" - ");
             cell.setData("P" + player.getId());
             player.setCurrentPosition(cell);
         }
+
     }
 }

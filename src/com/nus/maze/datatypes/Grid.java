@@ -62,7 +62,7 @@ public class Grid {
             /*Get a random column now and put the treasure there*/
                 int cellNumber = random.nextInt(cellCount);
                 Cell currentCell = allCells.get(cellNumber);
-                if (currentCell.getData().equals("-")) {
+                if (currentCell.getData().contains("-")) {
                     //continue until u find a vacant space.
                     currentCell.setData("T");
                     treasureDeposited = true;

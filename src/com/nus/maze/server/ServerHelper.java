@@ -21,7 +21,7 @@ public class ServerHelper {
     }
 
     public static int getTreasureValue(Cell currentCell){
-        int treasureValue = 00;
+        int treasureValue = 0;
         int tIndex = currentCell.getData().trim().indexOf("T");
         if(tIndex==0){
             treasureValue = 1;

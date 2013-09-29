@@ -6,6 +6,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Timer;
 import java.util.concurrent.ExecutorService;
@@ -55,7 +56,7 @@ public class MazeServer {
         }
         game.setGrid(grid);
         grid.setRows(rows);
-
+        game.setTreasureInfo(new TreasureInfo(treasureCount, treasureCount, new HashMap<Cell, Treasure>()));
         grid.fillRandomTreasures(treasureCount);
         System.out.println(grid);
         System.out.println("Starting cell : " + game.getGrid().getStartingCell());

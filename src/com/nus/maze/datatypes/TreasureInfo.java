@@ -15,6 +15,12 @@ public class TreasureInfo {
     private int treasureRemaining;
     private Map<Cell,Treasure> mapOfTreasures = new HashMap<Cell, Treasure>();
 
+    public TreasureInfo(int treasureCount, int treasureRemaining, Map<Cell, Treasure> mapOfTreasures) {
+        this.treasureCount = treasureCount;
+        this.treasureRemaining = treasureRemaining;
+        this.mapOfTreasures = mapOfTreasures;
+    }
+
     public int getTreasureCount() {
         return treasureCount;
     }
