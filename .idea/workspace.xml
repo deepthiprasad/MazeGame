@@ -1,28 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="90bc74cf-d155-40af-a28b-e6b86a038bd3" name="Default" comment="" />
+    <list default="true" id="90bc74cf-d155-40af-a28b-e6b86a038bd3" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nus/maze/datatypes/Cell.java" afterPath="$PROJECT_DIR$/src/com/nus/maze/datatypes/Cell.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nus/maze/server/GameTimerTask.java" afterPath="$PROJECT_DIR$/src/com/nus/maze/server/GameTimerTask.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nus/maze/datatypes/Grid.java" afterPath="$PROJECT_DIR$/src/com/nus/maze/datatypes/Grid.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nus/maze/client/MazeClient.java" afterPath="$PROJECT_DIR$/src/com/nus/maze/client/MazeClient.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nus/maze/server/MazeServer.java" afterPath="$PROJECT_DIR$/src/com/nus/maze/server/MazeServer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nus/maze/datatypes/Player.java" afterPath="$PROJECT_DIR$/src/com/nus/maze/datatypes/Player.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nus/maze/server/PlayerHandlerThread.java" afterPath="$PROJECT_DIR$/src/com/nus/maze/server/PlayerHandlerThread.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nus/maze/datatypes/Row.java" afterPath="$PROJECT_DIR$/src/com/nus/maze/datatypes/Row.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nus/maze/server/ServerHelper.java" afterPath="$PROJECT_DIR$/src/com/nus/maze/server/ServerHelper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="MazeGame.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Game.java" changelist="90bc74cf-d155-40af-a28b-e6b86a038bd3" time="1380052731271" ignored="false" />
-    <file path="/fragment.java" changelist="90bc74cf-d155-40af-a28b-e6b86a038bd3" time="1380219463762" ignored="false" />
-    <file path="/Grid.java" changelist="90bc74cf-d155-40af-a28b-e6b86a038bd3" time="1380133170319" ignored="false" />
+    <file path="/fragment.java" changelist="90bc74cf-d155-40af-a28b-e6b86a038bd3" time="1380394206044" ignored="false" />
+    <file path="/Grid.java" changelist="90bc74cf-d155-40af-a28b-e6b86a038bd3" time="1380392199539" ignored="false" />
     <file path="/Row.java" changelist="90bc74cf-d155-40af-a28b-e6b86a038bd3" time="1380130962960" ignored="false" />
     <file path="/Cell.java" changelist="90bc74cf-d155-40af-a28b-e6b86a038bd3" time="1380080394533" ignored="false" />
     <file path="/TreasureInfo.java" changelist="90bc74cf-d155-40af-a28b-e6b86a038bd3" time="1380046531691" ignored="false" />
-    <file path="/Player.java" changelist="90bc74cf-d155-40af-a28b-e6b86a038bd3" time="1380053010559" ignored="false" />
+    <file path="/Player.java" changelist="90bc74cf-d155-40af-a28b-e6b86a038bd3" time="1380388963602" ignored="false" />
     <file path="/Treasure.java" changelist="90bc74cf-d155-40af-a28b-e6b86a038bd3" time="1379952849181" ignored="false" />
     <file path="/StatusEnum.java" changelist="90bc74cf-d155-40af-a28b-e6b86a038bd3" time="1379958610693" ignored="false" />
-    <file path="/MazeServer.java" changelist="90bc74cf-d155-40af-a28b-e6b86a038bd3" time="1380217924424" ignored="false" />
-    <file path="/GameTimerTask.java" changelist="90bc74cf-d155-40af-a28b-e6b86a038bd3" time="1380052605893" ignored="false" />
+    <file path="/MazeServer.java" changelist="90bc74cf-d155-40af-a28b-e6b86a038bd3" time="1380393551468" ignored="false" />
+    <file path="/GameTimerTask.java" changelist="90bc74cf-d155-40af-a28b-e6b86a038bd3" time="1380362157718" ignored="false" />
     <file path="/GameStatus.java" changelist="90bc74cf-d155-40af-a28b-e6b86a038bd3" time="1379958680692" ignored="false" />
     <file path="/SimpleServer.java" changelist="90bc74cf-d155-40af-a28b-e6b86a038bd3" time="1380037681797" ignored="false" />
     <file path="/VerySimpleClient.java" changelist="90bc74cf-d155-40af-a28b-e6b86a038bd3" time="1380045737771" ignored="false" />
     <file path="/SimpleHandler.java" changelist="90bc74cf-d155-40af-a28b-e6b86a038bd3" time="1380047228145" ignored="false" />
-    <file path="/PlayerHandlerThread.java" changelist="90bc74cf-d155-40af-a28b-e6b86a038bd3" time="1380210315990" ignored="false" />
+    <file path="/PlayerHandlerThread.java" changelist="90bc74cf-d155-40af-a28b-e6b86a038bd3" time="1380390284456" ignored="false" />
     <file path="/DirectionEnum.java" changelist="90bc74cf-d155-40af-a28b-e6b86a038bd3" time="1380053760973" ignored="false" />
-    <file path="/ServerHelper.java" changelist="90bc74cf-d155-40af-a28b-e6b86a038bd3" time="1380132370622" ignored="false" />
-    <file path="/MazeClient.java" changelist="90bc74cf-d155-40af-a28b-e6b86a038bd3" time="1380359143419" ignored="false" />
+    <file path="/ServerHelper.java" changelist="90bc74cf-d155-40af-a28b-e6b86a038bd3" time="1380393103926" ignored="false" />
+    <file path="/MazeClient.java" changelist="90bc74cf-d155-40af-a28b-e6b86a038bd3" time="1380394452668" ignored="false" />
+    <file path="/Dummy.txt" changelist="90bc74cf-d155-40af-a28b-e6b86a038bd3" time="1380360482519" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +86,7 @@
     </breakpoint_any>
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <line_breakpoints>
-      <breakpoint url="file://$PROJECT_DIR$/src/com/nus/maze/datatypes/Grid.java" line="25" class="com.nus.maze.datatypes.Grid" package="com.nus.maze.datatypes">
+      <breakpoint url="file://$PROJECT_DIR$/src/com/nus/maze/datatypes/Grid.java" line="32" class="com.nus.maze.datatypes.Grid" package="com.nus.maze.datatypes">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -87,7 +100,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/com/nus/maze/server/PlayerHandlerThread.java" line="64" class="com.nus.maze.server.PlayerHandlerThread" package="com.nus.maze.server">
+      <breakpoint url="file://$PROJECT_DIR$/src/com/nus/maze/server/PlayerHandlerThread.java" line="57" class="com.nus.maze.server.PlayerHandlerThread" package="com.nus.maze.server">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -115,21 +128,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/com/nus/maze/server/MazeServer.java" line="84" class="com.nus.maze.server.MazeServer" package="com.nus.maze.server">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/com/nus/maze/server/MazeServer.java" line="81" class="com.nus.maze.server.MazeServer" package="com.nus.maze.server">
+      <breakpoint url="file://$PROJECT_DIR$/src/com/nus/maze/client/MazeClient.java" line="58" class="com.nus.maze.client.MazeClient" package="com.nus.maze.client">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -153,10 +152,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MazeServer.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MazeServer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/nus/maze/server/MazeServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="85" column="12" selection-start="2561" selection-end="2561" vertical-scroll-proportion="0.33333334">
+            <state line="106" column="14" selection-start="3746" selection-end="3746" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -164,70 +163,67 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ServerSocket.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.7.0_13/src.zip!/java/net/ServerSocket.java">
+      <file leaf-file-name="Player.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/nus/maze/datatypes/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="616" column="65" selection-start="22698" selection-end="22698" vertical-scroll-proportion="0.0">
+            <state line="29" column="45" selection-start="700" selection-end="700" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MazeClient.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Grid.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/nus/maze/datatypes/Grid.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="141" column="0" selection-start="4860" selection-end="4860" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#323#337#0" expanded="true" />
+                <element signature="e#2622#2628#0" expanded="true" />
+                <element signature="e#3599#3797#0" expanded="true" />
+                <element signature="e#3786#3787#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServerHelper.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/nus/maze/server/ServerHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="4" selection-start="613" selection-end="613" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Row.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/nus/maze/datatypes/Row.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="19" selection-start="277" selection-end="277" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Cell.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/nus/maze/datatypes/Cell.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="42" selection-start="490" selection-end="490" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MazeClient.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/nus/maze/client/MazeClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="45" selection-start="266" selection-end="266" vertical-scroll-proportion="0.0">
+            <state line="51" column="13" selection-start="1675" selection-end="1675" vertical-scroll-proportion="0.49275362">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#512#521#0" expanded="true" />
-                <element signature="e#1162#1697#0" expanded="true" />
-                <element signature="e#1686#1687#0" expanded="true" />
+                <element signature="e#523#532#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InputStream.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.7.0_13/src.zip!/java/io/InputStream.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="168" column="36" selection-start="7558" selection-end="7558" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SocketInputStream.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.7.0_13/src.zip!/java/net/SocketInputStream.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="90" column="30" selection-start="2185" selection-end="2185" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Socket.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.7.0_13/src.zip!/java/net/Socket.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="519" column="34" selection-start="21184" selection-end="21184" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InetSocketAddress.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.7.0_13/src.zip!/java/net/InetSocketAddress.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="290" column="52" selection-start="9790" selection-end="9790" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LinkedBlockingQueue.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.7.0_13/src.zip!/java/util/concurrent/LinkedBlockingQueue.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="26" selection-start="2064" selection-end="2064" vertical-scroll-proportion="0.0">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -235,7 +231,18 @@
       <file leaf-file-name="PlayerHandlerThread.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/nus/maze/server/PlayerHandlerThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="72" selection-start="1712" selection-end="1712" vertical-scroll-proportion="0.0">
+            <state line="85" column="119" selection-start="4477" selection-end="4477" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Game.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/nus/maze/datatypes/Game.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="20" selection-start="341" selection-end="341" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -250,6 +257,14 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
@@ -257,18 +272,18 @@
         <option value="$PROJECT_DIR$/src/com/nus/maze/server/SimpleHandler.java" />
         <option value="$PROJECT_DIR$/src/com/nus/maze/datatypes/TreasureInfo.java" />
         <option value="$PROJECT_DIR$/src/com/nus/maze/server/SimpleServer.java" />
-        <option value="$PROJECT_DIR$/src/com/nus/maze/server/GameTimerTask.java" />
         <option value="$PROJECT_DIR$/src/com/nus/maze/datatypes/Game.java" />
-        <option value="$PROJECT_DIR$/src/com/nus/maze/datatypes/Player.java" />
         <option value="$PROJECT_DIR$/src/com/nus/maze/datatypes/DirectionEnum.java" />
-        <option value="$PROJECT_DIR$/src/com/nus/maze/datatypes/Cell.java" />
+        <option value="$PROJECT_DIR$/src/com/nus/maze/server/VerySimpleClient.java" />
+        <option value="$PROJECT_DIR$/src/com/nus/maze/server/GameTimerTask.java" />
+        <option value="$PROJECT_DIR$/src/com/nus/maze/datatypes/Player.java" />
         <option value="$PROJECT_DIR$/src/com/nus/maze/datatypes/Row.java" />
+        <option value="$PROJECT_DIR$/src/com/nus/maze/datatypes/Cell.java" />
         <option value="$PROJECT_DIR$/src/com/nus/maze/server/ServerHelper.java" />
         <option value="$PROJECT_DIR$/src/com/nus/maze/datatypes/Grid.java" />
-        <option value="$PROJECT_DIR$/src/com/nus/maze/server/VerySimpleClient.java" />
+        <option value="$PROJECT_DIR$/src/com/nus/maze/client/MazeClient.java" />
         <option value="$PROJECT_DIR$/src/com/nus/maze/server/PlayerHandlerThread.java" />
         <option value="$PROJECT_DIR$/src/com/nus/maze/server/MazeServer.java" />
-        <option value="$PROJECT_DIR$/src/com/nus/maze/client/MazeClient.java" />
       </list>
     </option>
   </component>
@@ -379,40 +394,6 @@
               <option name="myItemId" value="maze" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="datatypes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MazeGame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MazeGame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="maze" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -420,15 +401,18 @@
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="OverrideImplement.combined" value="false" />
-    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
-    <property name="recentsLimit" value="5" />
+    <property name="project.structure.proportion" value="0.0" />
     <property name="MemberChooser.sorted" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -438,10 +422,10 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.MazeClient">
-    <configuration default="false" name="MazeServer" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="com.nus.maze.server.MazeServer" />
+    <configuration default="false" name="MazeClient" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.nus.maze.client.MazeClient" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="5 12" />
+      <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" value="" />
@@ -460,57 +444,13 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="MazeClient" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="com.nus.maze.client.MazeClient" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    <configuration default="false" name="MazeServer" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.nus.maze.server.MazeServer" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="10 10" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="MazeGame" />
-      <envs />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="SimpleServer" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="com.nus.maze.server.SimpleServer" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="MazeGame" />
-      <envs />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="MazeClient" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="com.nus.maze.client.MazeClient" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
@@ -614,18 +554,15 @@
       <patterns />
       <method />
     </configuration>
-    <list size="4">
-      <item index="0" class="java.lang.String" itemvalue="Application.MazeServer" />
-      <item index="1" class="java.lang.String" itemvalue="Application.MazeClient" />
-      <item index="2" class="java.lang.String" itemvalue="Application.SimpleServer" />
-      <item index="3" class="java.lang.String" itemvalue="Application.MazeClient" />
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Application.MazeClient" />
+      <item index="1" class="java.lang.String" itemvalue="Application.MazeServer" />
     </list>
     <recent_temporary>
-      <list size="4">
+      <list size="3">
         <item index="0" class="java.lang.String" itemvalue="Application.MazeClient" />
         <item index="1" class="java.lang.String" itemvalue="Application.MazeServer" />
         <item index="2" class="java.lang.String" itemvalue="Application.MazeClient" />
-        <item index="3" class="java.lang.String" itemvalue="Application.SimpleServer" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -669,17 +606,17 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39863715" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39863715" sideWeight="0.4969697" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44974446" sideWeight="0.49772727" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.21465077" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.55025554" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.44974446" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.43270868" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5672913" sideWeight="0.4969697" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -746,131 +683,212 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_13/src.zip!/java/util/LinkedList.java">
+    <entry file="file://$PROJECT_DIR$/src/com/nus/maze/server/GameTimerTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="664" column="68" selection-start="19995" selection-end="19995" vertical-scroll-proportion="0.59327215">
+        <state line="27" column="3" selection-start="646" selection-end="646" vertical-scroll-proportion="1.074074">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_13/src.zip!/java/io/BufferedOutputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="43" selection-start="421" selection-end="421" vertical-scroll-proportion="0.36391437">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_13/src.zip!/java/net/InetAddress.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_13/src.zip!/java/io/PrintWriter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="185" column="6" selection-start="6922" selection-end="6922" vertical-scroll-proportion="2.2777777">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nus/maze/server/ServerHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="16" selection-start="149" selection-end="149" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_13/jre/lib/rt.jar!/javax/net/SocketFactory.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="62" selection-start="286" selection-end="286" vertical-scroll-proportion="0.44444445">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_13/src.zip!/java/io/DataInputStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="11" selection-start="994" selection-end="994" vertical-scroll-proportion="-1.6111112">
+        <state line="467" column="75" selection-start="15454" selection-end="15454" vertical-scroll-proportion="0.3905724">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_13/src.zip!/java/net/Socket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="519" column="34" selection-start="21184" selection-end="21184" vertical-scroll-proportion="0.0">
+        <state line="929" column="44" selection-start="36326" selection-end="36326" vertical-scroll-proportion="0.27272728">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_13/src.zip!/java/net/InetSocketAddress.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_13/src.zip!/java/io/OutputStream.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="290" column="52" selection-start="9790" selection-end="9790" vertical-scroll-proportion="0.0">
+        <state line="83" column="58" selection-start="2610" selection-end="2610" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_13/src.zip!/java/net/ServerSocket.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_13/src.zip!/java/io/InputStream.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="616" column="65" selection-start="22698" selection-end="22698" vertical-scroll-proportion="0.0">
+        <state line="160" column="15" selection-start="7254" selection-end="7254" vertical-scroll-proportion="6.311927">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nus/maze/datatypes/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="27" selection-start="564" selection-end="582" vertical-scroll-proportion="0.0">
+        <state line="29" column="45" selection-start="700" selection-end="700" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_13/src.zip!/java/net/SocketInputStream.java">
+    <entry file="file://$PROJECT_DIR$/src/com/nus/maze/datatypes/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="30" selection-start="2185" selection-end="2185" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nus/maze/datatypes/Grid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="0" selection-start="1904" selection-end="1904" vertical-scroll-proportion="0.0">
+        <state line="16" column="20" selection-start="341" selection-end="341" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#440#454#0" expanded="true" />
-            <element signature="e#2557#2563#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_13/src.zip!/java/io/InputStream.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_13/src.zip!/java/util/List.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="168" column="36" selection-start="7558" selection-end="7558" vertical-scroll-proportion="0.0">
+        <state line="434" column="6" selection-start="19325" selection-end="19325" vertical-scroll-proportion="0.33333334">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nus/maze/datatypes/Row.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="0" selection-start="796" selection-end="796" vertical-scroll-proportion="0.0">
+        <state line="14" column="19" selection-start="277" selection-end="277" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_13/src.zip!/java/util/Timer.java">
+    <entry file="file://$PROJECT_DIR$/src/com/nus/maze/datatypes/Cell.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="189" column="16" selection-start="6959" selection-end="6959" vertical-scroll-proportion="-2.7463768">
+        <state line="22" column="42" selection-start="490" selection-end="490" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nus/maze/client/MazeClient.java">
+    <entry file="file://$PROJECT_DIR$/src/com/nus/maze/server/ServerHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="45" selection-start="266" selection-end="266" vertical-scroll-proportion="0.0">
+        <state line="21" column="4" selection-start="613" selection-end="613" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nus/maze/datatypes/Grid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="141" column="0" selection-start="4860" selection-end="4860" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#512#521#0" expanded="true" />
-            <element signature="e#1162#1697#0" expanded="true" />
-            <element signature="e#1686#1687#0" expanded="true" />
+            <element signature="e#323#337#0" expanded="true" />
+            <element signature="e#2622#2628#0" expanded="true" />
+            <element signature="e#3599#3797#0" expanded="true" />
+            <element signature="e#3786#3787#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nus/maze/server/PlayerHandlerThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="85" column="119" selection-start="4477" selection-end="4477" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nus/maze/server/MazeServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="12" selection-start="2561" selection-end="2561" vertical-scroll-proportion="0.33333334">
+        <state line="106" column="14" selection-start="3746" selection-end="3746" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nus/maze/client/MazeClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="13" selection-start="1675" selection-end="1675" vertical-scroll-proportion="0.49275362">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#523#532#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>MazeGame</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
 

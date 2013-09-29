@@ -20,7 +20,7 @@ public class Cell {
     @Override
     public String toString() {
         StringBuffer buffer = new StringBuffer();
-        buffer.append(data);
+        buffer.append(" " + data + " ");
         return buffer.toString();
     }
 

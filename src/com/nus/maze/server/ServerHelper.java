@@ -22,11 +22,11 @@ public class ServerHelper {
 
     public static int getTreasureValue(Cell currentCell){
         int treasureValue = 00;
-        int tIndex = currentCell.getData().indexOf("T");
+        int tIndex = currentCell.getData().trim().indexOf("T");
         if(tIndex==0){
             treasureValue = 1;
         }else{
-            treasureValue = Integer.parseInt(currentCell.getData().substring(0,tIndex)) ;
+            treasureValue = Integer.parseInt(currentCell.getData().trim().substring(0,tIndex)) ;
         }
         return treasureValue;
     }

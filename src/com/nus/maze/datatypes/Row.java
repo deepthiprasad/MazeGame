@@ -55,11 +55,7 @@ public class Row {
         StringBuffer buffer = new StringBuffer();
         for(int i=0;i<cells.size();i++){
             buffer.append(cells.get(i));
-            if(cells.get(i).getData().length() <10){
-                buffer.append(" |  ");
-            }else{
-                buffer.append("  |  ");
-            }
+            buffer.append("|");
         }
         return buffer.toString();
     }

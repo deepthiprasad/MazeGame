@@ -80,21 +80,29 @@ public class MazeServer {
 
             /*Accept the client connection*/
             clientSocket =  mazeServerSocket.accept();
+            if(gameStarted.status == StatusEnum.GAME_STARTED){
+                //reject the connection from another player as the game has already begun.
+                String alreadyBegun = "The game has already begun... plz wait for the next game";
+                clientSocket.getOutputStream().write(alreadyBegun.getBytes(), 0, alreadyBegun.getBytes().length);
+                clientSocket.getOutputStream().flush();
+                break;
+            }
 
+            clientSocket.setTcpNoDelay(true);
             /*Write the welcome message to the player*/
             int playerId = writeWelcomeMessage(clientSocket);
 
             /*Build a player instance and instantiate the thread*/
             Player player = new Player();
             player.setId(playerId);
-            player.setCurrentPosition(game.getGrid().getStartingCell());
+            player.setCurrentPosition(game.getGrid().getRandomUnOccupiedCell());
             //add a player to the game here
             game.getPlayerList().add(player);
             executorService.execute(new PlayerHandlerThread(clientSocket, player, gameStarted, game));
 
             if(gameStarted.status == StatusEnum.INACTIVE){
                 Timer timer = new Timer();
-                timer.schedule(new GameTimerTask(gameStarted, game),20000);
+                timer.schedule(new GameTimerTask(gameStarted, game),10000);
                 gameStarted.status = StatusEnum.NEW_GAME_REQUESTED;
             }
 
