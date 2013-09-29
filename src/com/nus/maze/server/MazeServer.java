@@ -22,6 +22,12 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class MazeServer {
 
+    /*The size of the Grid*/
+    private static int gridSize;
+
+    /*The treasure count*/
+    private static int treasureCount;
+    
     /*Flag to indicate GameStatus instance*/
     private GameStatus gameStarted = new GameStatus(StatusEnum.INACTIVE);
 
@@ -37,15 +43,46 @@ public class MazeServer {
     /*ExecutorService for dispatching player threads individually*/
     private ExecutorService executorService = Executors.newCachedThreadPool();
 
-    /*The size of the Grid*/
-    public static int gridSize;
-
-    /*The treasure count*/
-    public static int treasureCount;
-
     /*Build the grid*/
     private Grid grid = new Grid();
 
+    private static final AtomicInteger PLAYER_COUNT = new AtomicInteger(0);
+    
+    public static void main(String[] args) throws IOException {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(
+				System.in));
+
+		// introduction display
+		System.out
+				.println("=======================================Maze Server======================================="); //$NON-NLS-1$
+		System.out
+				.println("The maze will have a size of N-by-N, with M number of treasures."); //$NON-NLS-1$
+
+		// getting initial input for M (i.e. number of treasures) and N (i.e.
+		// grid size)
+		System.out.print("Enter the desired grid size (N): "); //$NON-NLS-1$
+		gridSize = Integer.parseInt(reader.readLine());
+		System.out.print("Enter the desired number of treasures (M): "); //$NON-NLS-1$
+		treasureCount = Integer.parseInt(reader.readLine());
+
+		// initialise the maze
+		MazeServer mazeServer = new MazeServer();
+		System.out.println("The game is initialized with a maze size of " //$NON-NLS-1$
+				+ gridSize + "-by-" + gridSize + " with " + treasureCount //$NON-NLS-1$ //$NON-NLS-2$
+				+ " treasures"); //$NON-NLS-1$
+
+		System.out.println("\nWaiting for players to connect..."); //$NON-NLS-1$
+		/*
+		 * Start the server and start accept requests /* If the game has not yet
+		 * started, accept the requests
+		 */
+		/* Start a timer for 20s to enable the joining window */
+		/* If game has started, stop accepting requests */
+
+		// start the server
+		mazeServer.acceptRequest();
+    }
+    
     MazeServer(){
 
         /*Add all the rows*/
@@ -58,8 +95,8 @@ public class MazeServer {
         grid.setRows(rows);
         game.setTreasureInfo(new TreasureInfo(treasureCount, treasureCount, new HashMap<Cell, Treasure>()));
         grid.fillRandomTreasures(treasureCount);
-        System.out.println(grid);
-        System.out.println("Starting cell : " + game.getGrid().getStartingCell());
+//        System.out.println(grid);
+//        System.out.println("Starting cell : " + game.getGrid().getStartingCell());
 
     }
 
@@ -72,8 +109,6 @@ public class MazeServer {
         System.out.println("Waiting for players to connect...");
     }
 
-    private static final AtomicInteger PLAYER_COUNT = new AtomicInteger(0);
-
     private void acceptRequest() throws IOException {
         Socket clientSocket = null;
         mazeServerSocket = new ServerSocket(9000);
@@ -82,8 +117,9 @@ public class MazeServer {
             /*Accept the client connection*/
             clientSocket =  mazeServerSocket.accept();
             if(gameStarted.status == StatusEnum.GAME_STARTED){
+            	
                 //reject the connection from another player as the game has already begun.
-                String alreadyBegun = "The game has already begun... plz wait for the next game";
+                String alreadyBegun = "The game has already begun... please wait for the next game";
                 clientSocket.getOutputStream().write(alreadyBegun.getBytes(), 0, alreadyBegun.getBytes().length);
                 clientSocket.getOutputStream().flush();
                 break;
@@ -91,7 +127,7 @@ public class MazeServer {
 
             clientSocket.setTcpNoDelay(true);
             /*Write the welcome message to the player*/
-            int playerId = writeWelcomeMessage(clientSocket);
+            int playerId = PLAYER_COUNT.incrementAndGet();
 
             /*Build a player instance and instantiate the thread*/
             Player player = new Player();
@@ -105,38 +141,10 @@ public class MazeServer {
                 Timer timer = new Timer();
                 timer.schedule(new GameTimerTask(gameStarted, game),10000);
                 gameStarted.status = StatusEnum.NEW_GAME_REQUESTED;
+                System.out.println("\nGame starting in 20s..."); //$NON-NLS-1$
             }
-
             //init();
         }
 
     }
-
-    private int writeWelcomeMessage(Socket clientSocket) throws IOException {
-        int playerId = PLAYER_COUNT.incrementAndGet();
-        String welcomeMesssage = "Welcome Player " + playerId;
-
-        clientSocket.getOutputStream().write( welcomeMesssage.getBytes(), 0, welcomeMesssage.getBytes().length);
-        clientSocket.getOutputStream().flush();
-        return playerId;
-    }
-
-    public static void main(String[] args) throws IOException {
-
-
-        /* If the game has not yet started, accept the requests */
-        /* Start a timer for 20s to enable the joining window */
-        /* If game has started, stop accepting requests */
-
-        //starting the game with NxN grid with M treasures
-        gridSize = Integer.parseInt(args[0]);
-        treasureCount = Integer.parseInt(args[1]);
-
-
-        new MazeServer().acceptRequest();
-
-    }
-
-
-
 }

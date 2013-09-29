@@ -1,5 +1,6 @@
 package com.nus.maze.server;
 
+import com.nus.maze.GameConstants;
 import com.nus.maze.datatypes.*;
 
 import java.io.*;
@@ -25,7 +26,13 @@ public class PlayerHandlerThread implements Runnable {
         this.gameStatus = gameStatus;
         this.grid = game.getGrid();
         this.game = game;
-        this.playerWriter = new PrintWriter(sockOutput);
+
+		/* Write the welcome message to the player */
+		String welcomeMessage = "Welcome Player " + this.player.getId() + " Enter 'joingame' to join the Maze Game."; //$NON-NLS-1$		
+
+		this.playerWriter = new PrintWriter(this.sockOutput);
+		this.playerWriter.println(welcomeMessage);
+		this.playerWriter.flush();
     }
 
     // All this method does is wait for some bytes from the
@@ -45,7 +52,7 @@ public class PlayerHandlerThread implements Runnable {
                     String command = new String(buf).trim();
                     if (checkForValidMoves(command))
                         continue;
-                    if(command.equalsIgnoreCase("N")){
+                    if(command.equalsIgnoreCase(GameConstants.MOVE_NORTH_COMMAND)){
                         //here while constructing the grid, X is treated as Y and vice-versa.
                         if(player.getCurrentPosition().getY() <  grid.getRows().size()-1){
                             //ignore the rest of the requests as they are not valid moves.
@@ -54,28 +61,28 @@ public class PlayerHandlerThread implements Runnable {
                             moveAndCaptureTreasure(cell);
                         }
                     }
-                    else if(command.equalsIgnoreCase("S")){
+                    else if(command.equalsIgnoreCase(GameConstants.MOVE_SOUTH_COMMAND)){
                         if(player.getCurrentPosition().getY() >  0){
                             //ignore the rest of the requests as they are not valid moves.
                             Cell cell = grid.getCellAtXY(player.getCurrentPosition().getX(), player.getCurrentPosition().getY() - 1);
                             moveAndCaptureTreasure(cell);
                         }
                     }
-                    else if(command.equalsIgnoreCase("E")){
+                    else if(command.equalsIgnoreCase(GameConstants.MOVE_EAST_COMMAND)){
                         if(player.getCurrentPosition().getX() <  grid.getRows().size()-1){
                             //ignore the rest of the requests as they are not valid moves.
                             Cell cell = grid.getCellAtXY(player.getCurrentPosition().getX() + 1, player.getCurrentPosition().getY());
                             moveAndCaptureTreasure(cell);
                         }
                     }
-                    else if(command.equalsIgnoreCase("W")){
+                    else if(command.equalsIgnoreCase(GameConstants.MOVE_WEST_COMMAND)){
                         if(player.getCurrentPosition().getX() > 0){
                             //ignore the rest of the requests as they are not valid moves.
                             Cell cell = grid.getCellAtXY(player.getCurrentPosition().getX() - 1, player.getCurrentPosition().getY());
                             moveAndCaptureTreasure(cell);
                         }
                     }
-                    else if(command.equalsIgnoreCase("NOMOVE")){
+                    else if(command.equalsIgnoreCase(GameConstants.NO_MOVE_COMMAND)){
                         //just send the grid status.
                     }
                     StringBuffer buffer = new StringBuffer();
@@ -116,11 +123,11 @@ public class PlayerHandlerThread implements Runnable {
     }
 
     private boolean checkForValidMoves(String command) throws IOException {
-        if(!command.equalsIgnoreCase("N")
-                && !command.equalsIgnoreCase("S")
-                && !command.equalsIgnoreCase("E")
-                && !command.equalsIgnoreCase("W")
-                && !command.equalsIgnoreCase("NOMOVE")){
+        if(!command.equalsIgnoreCase(GameConstants.MOVE_NORTH_COMMAND)
+                && !command.equalsIgnoreCase(GameConstants.MOVE_SOUTH_COMMAND)
+                && !command.equalsIgnoreCase(GameConstants.MOVE_EAST_COMMAND)
+                && !command.equalsIgnoreCase(GameConstants.MOVE_WEST_COMMAND)
+                && !command.equalsIgnoreCase(GameConstants.NO_MOVE_COMMAND)){
             String error = "Invalid Command, Enter [N, S, E, W, NOMOVE]";
             sockOutput.write(error.getBytes(), 0, error.getBytes().length);
             sockOutput.flush();
