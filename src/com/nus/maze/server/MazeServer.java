@@ -1,8 +1,8 @@
 package com.nus.maze.server;
 
-import com.nus.maze.datatypes.*;
-
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -13,42 +13,46 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import com.nus.maze.datatypes.Cell;
+import com.nus.maze.datatypes.Game;
+import com.nus.maze.datatypes.Grid;
+import com.nus.maze.datatypes.Player;
+import com.nus.maze.datatypes.Row;
+import com.nus.maze.datatypes.StatusEnum;
+import com.nus.maze.datatypes.Treasure;
+import com.nus.maze.datatypes.TreasureInfo;
+
 /**
- * Created with IntelliJ IDEA.
- * User: Dell
- * Date: 9/24/13
- * Time: 12:18 AM
- * To change this template use File | Settings | File Templates.
+ * Created with IntelliJ IDEA. User: Dell Date: 9/24/13 Time: 12:18 AM To change
+ * this template use File | Settings | File Templates.
  */
 public class MazeServer {
 
-    /*The size of the Grid*/
-    private static int gridSize;
+	/* The size of the Grid */
+	private static int gridSize;
 
-    /*The treasure count*/
-    private static int treasureCount;
-    
-    /*Flag to indicate GameStatus instance*/
-    private GameStatus gameStarted = new GameStatus(StatusEnum.INACTIVE);
+	/* The treasure count */
+	private static int treasureCount;
 
-    /*ServerSocket instance initialization*/
-    private ServerSocket mazeServerSocket = null;
+	/* Flag to indicate GameStatus instance */
+	private final GameStatus gameStarted = new GameStatus(StatusEnum.INACTIVE);
 
-    /*Integer to track server socket port*/
-    private AtomicInteger socketPortNumber = new AtomicInteger(9000);
+	/* ServerSocket instance initialization */
+	private ServerSocket mazeServerSocket = null;
 
-    /*Build the game*/
-    private Game game = new Game();
+	/* Build the game */
+	private final Game game = new Game();
 
-    /*ExecutorService for dispatching player threads individually*/
-    private ExecutorService executorService = Executors.newCachedThreadPool();
+	/* ExecutorService for dispatching player threads individually */
+	private final ExecutorService executorService = Executors
+			.newCachedThreadPool();
 
-    /*Build the grid*/
-    private Grid grid = new Grid();
+	/* Build the grid */
+	private final Grid grid = new Grid();
 
-    private static final AtomicInteger PLAYER_COUNT = new AtomicInteger(0);
-    
-    public static void main(String[] args) throws IOException {
+	private static final AtomicInteger PLAYER_COUNT = new AtomicInteger(0);
+
+	public static void main(String[] args) throws IOException {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(
 				System.in));
 
@@ -81,70 +85,68 @@ public class MazeServer {
 
 		// start the server
 		mazeServer.acceptRequest();
-    }
-    
-    MazeServer(){
+	}
 
-        /*Add all the rows*/
-        List<Row> rows = new ArrayList<Row>();
-        int columnNumber = gridSize;
-        for(int i=0;i<gridSize;i++){
-            rows.add(new Row(0,--columnNumber, gridSize));
-        }
-        game.setGrid(grid);
-        grid.setRows(rows);
-        game.setTreasureInfo(new TreasureInfo(treasureCount, treasureCount, new HashMap<Cell, Treasure>()));
-        grid.fillRandomTreasures(treasureCount);
-//        System.out.println(grid);
-//        System.out.println("Starting cell : " + game.getGrid().getStartingCell());
+	MazeServer() {
 
-    }
+		/* Add all the rows */
+		List<Row> rows = new ArrayList<Row>();
+		int columnNumber = gridSize;
+		for (int i = 0; i < gridSize; i++) {
+			rows.add(new Row(0, --columnNumber, gridSize));
+		}
+		this.game.setGrid(this.grid);
+		this.grid.setRows(rows);
+		this.game.setTreasureInfo(new TreasureInfo(treasureCount,
+				treasureCount, new HashMap<Cell, Treasure>()));
+		this.grid.fillRandomTreasures(treasureCount);
+		// System.out.println(grid);
+		// System.out.println("Starting cell : " +
+		// game.getGrid().getStartingCell());
 
-    void init(){
-        try {
-            mazeServerSocket = new ServerSocket(socketPortNumber.incrementAndGet());
-        } catch (IOException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        }
-        System.out.println("Waiting for players to connect...");
-    }
+	}
 
-    private void acceptRequest() throws IOException {
-        Socket clientSocket = null;
-        mazeServerSocket = new ServerSocket(9000);
-        while(gameStarted.status != StatusEnum.GAME_STARTED){
+	private void acceptRequest() throws IOException {
+		Socket clientSocket = null;
+		this.mazeServerSocket = new ServerSocket(9000);
+		while (this.gameStarted.status != StatusEnum.GAME_STARTED) {
 
-            /*Accept the client connection*/
-            clientSocket =  mazeServerSocket.accept();
-            if(gameStarted.status == StatusEnum.GAME_STARTED){
-            	
-                //reject the connection from another player as the game has already begun.
-                String alreadyBegun = "The game has already begun... please wait for the next game";
-                clientSocket.getOutputStream().write(alreadyBegun.getBytes(), 0, alreadyBegun.getBytes().length);
-                clientSocket.getOutputStream().flush();
-                break;
-            }
+			/* Accept the client connection */
+			clientSocket = this.mazeServerSocket.accept();
+			if (this.gameStarted.status == StatusEnum.GAME_STARTED) {
 
-            clientSocket.setTcpNoDelay(true);
-            /*Write the welcome message to the player*/
-            int playerId = PLAYER_COUNT.incrementAndGet();
+				// reject the connection from another player as the game has
+				// already begun.
+				String alreadyBegun = "The game has already begun... please wait for the next game"; //$NON-NLS-1$
+				clientSocket.getOutputStream().write(alreadyBegun.getBytes(),
+						0, alreadyBegun.getBytes().length);
+				clientSocket.getOutputStream().flush();
+				break;
+			}
 
-            /*Build a player instance and instantiate the thread*/
-            Player player = new Player();
-            player.setId(playerId);
-            player.setCurrentPosition(game.getGrid().getRandomUnOccupiedCell());
-            //add a player to the game here
-            game.getPlayerList().add(player);
-            executorService.execute(new PlayerHandlerThread(clientSocket, player, gameStarted, game));
+			clientSocket.setTcpNoDelay(true);
+			/* Write the welcome message to the player */
+			int playerId = PLAYER_COUNT.incrementAndGet();
 
-            if(gameStarted.status == StatusEnum.INACTIVE){
-                Timer timer = new Timer();
-                timer.schedule(new GameTimerTask(gameStarted, game),10000);
-                gameStarted.status = StatusEnum.NEW_GAME_REQUESTED;
-                System.out.println("\nGame starting in 20s..."); //$NON-NLS-1$
-            }
-            //init();
-        }
+			/* Build a player instance and instantiate the thread */
+			Player player = new Player();
+			player.setId(playerId);
+			player.setCurrentPosition(this.game.getGrid()
+					.getRandomUnOccupiedCell());
+			// add a player to the game here
+			this.game.getPlayerList().add(player);
+			this.executorService.execute(new PlayerHandlerThread(clientSocket,
+					player, this.gameStarted, this.game));
 
-    }
+			if (this.gameStarted.status == StatusEnum.INACTIVE) {
+				Timer timer = new Timer();
+				timer
+						.schedule(new GameTimerTask(this.gameStarted, game),
+								10000);
+				this.gameStarted.status = StatusEnum.NEW_GAME_REQUESTED;
+				System.out.println("\nGame starting in 20s..."); //$NON-NLS-1$
+			}
+		}
+
+	}
 }

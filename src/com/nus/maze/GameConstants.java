@@ -28,5 +28,5 @@ public class GameConstants {
 	/**
 	 * Do not move (return status)
 	 */
-	public static final String NO_MOVE_COMMAND = "NOMOVE";
+	public static final String NO_MOVE_COMMAND = "NOMOVE"; //$NON-NLS-1$
 }
