@@ -84,7 +84,7 @@ public class MazeClient {
                         if (secondPlayer(response)) {
                             ServerSocket serverSocket = tryBackupServer();
 
-                            server.setMazeServerSocket(serverSocket);
+                            //server.setMazeServerSocket(serverSocket);
                             // Send a grid request with the port
                             String gridReq = "GridRequest:" + serverSocket.getInetAddress().getCanonicalHostName() + "=" + serverSocket.getLocalPort();
                             this.sockOutput.write(gridReq.getBytes(), 0, gridReq.getBytes().length);

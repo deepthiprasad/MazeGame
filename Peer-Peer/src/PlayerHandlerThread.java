@@ -91,15 +91,16 @@ public class PlayerHandlerThread extends Thread {
                                 //if valid port is found, try connecting to it
                                 checkForValidBackup();
                             }
+                            game.setBackupAvailable(true);
 
-                            if (getName().contains("Player 1")) {
+                           // if (getName().contains("Player 1")) {
                                 System.out.println("Grid Request sent is..." + temp);
                                 // Send the Grid object to the client
                                 ObjectOutputStream gridTransferStream = new ObjectOutputStream(sock.getOutputStream());
                                 gridTransferStream.writeObject(game);
                                 gridTransferStream.flush();
                                 game.setBackupAvailable(true);
-                            }
+                            //}
                         }
                         alreadyNotifiedWaitStatus = true;
                         alreadyNotifiedStart = true;
