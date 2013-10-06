@@ -1,10 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.InetAddress;
-import java.net.MulticastSocket;
-import java.net.ServerSocket;
-import java.net.Socket;
+import java.net.*;
 import java.util.*;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
@@ -50,6 +47,13 @@ public class PeerMazeServer {
     CountDownLatch gameStartedNotification = new CountDownLatch(1);
 
     CountDownLatch gameEndNotification = new CountDownLatch(1);
+
+    /*ServerSocket instance initialization*/
+    private Socket backupSocket = null;
+
+    /*Failover serversocket for handling transfers of client requests*/
+    private ServerSocket primaryServerSocket;
+    private DatagramPacket mazeSocket;
 
     PeerMazeServer() throws Exception {
 
@@ -122,7 +126,7 @@ public class PeerMazeServer {
             clientSocket.setTcpNoDelay(true);
             clientSocket.setKeepAlive(true);
 
-            executorService.execute(new PlayerHandlerThread(clientSocket, gameStarted, game, gameStartedNotification, gameEndNotification));
+            executorService.execute(new PlayerHandlerThread(clientSocket, gameStarted, game, gameStartedNotification, gameEndNotification, this));
 
             if (gameStarted.status == StatusEnum.INACTIVE) {
                 Timer timer = new Timer();
@@ -165,10 +169,39 @@ public class PeerMazeServer {
 
     }
 
-    public void setMazeServerSocket(ServerSocket mazeServerSocket) throws Exception{
+    public void setBackupServerSocket(ServerSocket mazeServerSocket) throws Exception{
         this.mazeServerSocket = mazeServerSocket;
-        System.out.println("Starting the server at :" + mazeServerSocket.getLocalPort());
-        executorService.execute(new BackupServerThread(mazeServerSocket.accept(), gameStarted, game, gameStartedNotification, gameEndNotification));
+        System.out.println("Starting the BACKUP server at :" + mazeServerSocket.getLocalPort());
+        executorService.execute(new BackupServerThread(mazeServerSocket.accept(), gameStarted, game, gameStartedNotification, gameEndNotification, this));
     }
 
+    public void setPrimaryServerSocket(CountDownLatch signalClientStart) throws Exception{
+        System.out.println("Starting the Primary server at :" + mazeServerSocket.getLocalPort());
+        for(Player player: game.getPlayerList()){
+            if(player.getStatus() == StatusEnum.ACTIVE){
+                signalClientStart.countDown();
+                executorService.execute(new PlayerHandlerThread(mazeServerSocket.accept(), gameStarted, game, gameStartedNotification, gameEndNotification, this));
+            }
+        }
+    }
+
+    public void setBackupSocket(Socket backupSocket) {
+        this.backupSocket = backupSocket;
+    }
+
+    public Socket getBackupSocket() {
+        return backupSocket;
+    }
+
+    public Game getGame() {
+        return game;
+    }
+
+    public ServerSocket getMazeSocket() {
+        return mazeServerSocket;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
 }

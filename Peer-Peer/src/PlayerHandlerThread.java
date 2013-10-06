@@ -18,10 +18,10 @@ public class PlayerHandlerThread extends Thread {
     private static final AtomicInteger PLAYER_COUNT = new AtomicInteger(0);
     private CountDownLatch gameStartNotification;
     private CountDownLatch gameEndNotification;
-    private Socket backupSocket;
+    private PeerMazeServer mazeServer;
 
     public PlayerHandlerThread(Socket clientSocket, GameStatus gameStarted, Game game, CountDownLatch gameStartNotification,
-                               CountDownLatch gameEndNotification) throws IOException {
+                               CountDownLatch gameEndNotification, PeerMazeServer mazeServer) throws IOException {
         sock = clientSocket;
         sockInput = clientSocket.getInputStream();
         sockOutput = new BufferedOutputStream(clientSocket.getOutputStream());
@@ -31,6 +31,7 @@ public class PlayerHandlerThread extends Thread {
         this.game = game;
         this.gameStartNotification = gameStartNotification;
         this.gameEndNotification = gameEndNotification;
+        this.mazeServer = mazeServer;
 
     }
 
@@ -52,8 +53,9 @@ public class PlayerHandlerThread extends Thread {
             try {
                 byte[] buf = new byte[4096];
                 try {
-
-
+                    if(getName().contains("Player 1")){
+                        player.setServerType("Primary");
+                    }
                     if (gameStatus.status == StatusEnum.GAME_STARTED && !alreadyNotifiedStart) {
                         //reject the connection from another player as the game has already begun.
                         String alreadyBegun = "The game has already begun... plz wait for the next game";
@@ -66,11 +68,19 @@ public class PlayerHandlerThread extends Thread {
                         player.setId(PLAYER_COUNT.incrementAndGet());
                         player.setCurrentPosition(game.getGrid().getRandomUnOccupiedCell());
                         player.setNumOfTreasuresFound(ServerHelper.getTreasureValue(player.getCurrentPosition()));
+                        player.setStatus(StatusEnum.ACTIVE);
+                        if(game.getPlayerList().size() ==1){
+
+                        }
                         //add a player to the game here
                         game.getPlayerList().add(player);
                         System.out.println("Player : P" + player.getId() + " joined...");
 
                         this.setName("Player " + player.getId());
+
+                        if(getName().contains("Player 1")){
+                            player.setServerType("Primary");
+                        }
 
                         /*Write welcome message for this player who just joined*/
                         writeWelcomeMessage(player.getId());
@@ -88,19 +98,23 @@ public class PlayerHandlerThread extends Thread {
                                 game.setBackupAddress(backupServer.split("=")[0]);
                                 game.setBackupPort(backupServer.split("=")[1]);
 
+                                //The Player who connects first to the primary shall be declared as Backup.
+                                player.setServerType("Backup");
                                 //if valid port is found, try connecting to it
                                 checkForValidBackup();
                             }
                             game.setBackupAvailable(true);
 
-                           // if (getName().contains("Player 1")) {
-                                System.out.println("Grid Request sent is..." + temp);
+                            // Player 2 server thread shall Respond with grid object
+                           if (getName().contains("Player 2")) {
+                               player.setServerType("Backup");
+                               System.out.println("Grid Request sent is..." + temp);
                                 // Send the Grid object to the client
                                 ObjectOutputStream gridTransferStream = new ObjectOutputStream(sock.getOutputStream());
                                 gridTransferStream.writeObject(game);
                                 gridTransferStream.flush();
-                                game.setBackupAvailable(true);
-                            //}
+                                //game.setBackupAvailable(true);
+                            }
                         }
                         alreadyNotifiedWaitStatus = true;
                         alreadyNotifiedStart = true;
@@ -113,10 +127,6 @@ public class PlayerHandlerThread extends Thread {
                     sockInput.read(buf, 0, buf.length);
                     String command = new String(buf).trim();
                     if (checkForValidMoves(command))  {
-                            //not a valid move?
-//                        ObjectInputStream stream = new ObjectInputStream(new ByteArrayInputStream(buf));
-//                        game = (Game)stream.readObject();
-//                        System.out.println("**** AFTER MOVE TO GRID " + game.getGrid());
                         continue;
                     }
 
@@ -149,10 +159,9 @@ public class PlayerHandlerThread extends Thread {
                     } else if (command.equalsIgnoreCase("NOMOVE")) {
                         //just send the grid status.
                     }
+                    System.out.println("Current Primary/Backup : " + player);
 
-                    //send the current grid standings to the backup server for a new copy.
-//                    if(player.getId() == 1 && game.isBackupAvailable())
-//                        sendACopyOfGame();
+
 
                     StringBuffer buffer = new StringBuffer();
                     buffer.append("--------------------------\n");
@@ -166,10 +175,13 @@ public class PlayerHandlerThread extends Thread {
                     sockOutput.write(gridString.getBytes(), 0, gridString.getBytes().length);
                 } catch (SocketException socketException) {
                     System.out.println("Player : " + player + " dropped off...");
+                    player.setStatus(StatusEnum.INACTIVE);
                     //TODO : Set the status of the player to inactive
                     break;
                 } finally {
-
+                    //send the current grid standings to the backup server for a new copy.
+                    if(game.isBackupAvailable())
+                        sendACopyOfGame();
                 }
                 sockOutput.flush();
             } catch (Exception e) {
@@ -191,13 +203,13 @@ public class PlayerHandlerThread extends Thread {
     private void checkForValidBackup() throws IOException {
         if(game.getBackupPort()!=null && game.getBackupAddress()!=null){
             game.setBackupAvailable(true);
-            backupSocket = new Socket(game.getBackupAddress(), Integer.parseInt(game.getBackupPort()));
+            mazeServer.setBackupSocket(new Socket(game.getBackupAddress(), Integer.parseInt(game.getBackupPort())));
         }
     }
 
     private void sendACopyOfGame() throws Exception {
         // Send the Grid object to the client
-        ObjectOutputStream gridTransferStream = new ObjectOutputStream(backupSocket.getOutputStream());
+        ObjectOutputStream gridTransferStream = new ObjectOutputStream(mazeServer.getBackupSocket().getOutputStream());
         gridTransferStream.writeObject(game);
         gridTransferStream.flush();
     }

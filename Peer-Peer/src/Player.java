@@ -13,6 +13,16 @@ public class Player implements Serializable {
       private int numOfTreasuresFound;
       private StatusEnum status;
 
+    public String getServerType() {
+        return serverType;
+    }
+
+    public void setServerType(String serverType) {
+        this.serverType = serverType;
+    }
+
+    private String serverType;
+
     public int getId() {
         return id;
     }
@@ -53,6 +63,7 @@ public class Player implements Serializable {
                 ", currentPosition=" + currentPosition +
                 ", numOfTreasuresFound=" + numOfTreasuresFound +
                 ", status=" + status +
+                ", serverType='" + serverType + '\'' +
                 '}';
     }
 }

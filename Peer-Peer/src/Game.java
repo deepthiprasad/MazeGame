@@ -1,4 +1,6 @@
 import java.io.Serializable;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -17,6 +19,14 @@ public class Game implements Serializable {
     private String backupAddress;
     private String backupPort;
     private AtomicBoolean isBackupAvailable= new AtomicBoolean(false);
+
+    public AtomicBoolean getBackupAvailable() {
+        return isBackupAvailable;
+    }
+
+    public void setBackupAvailable(AtomicBoolean backupAvailable) {
+        isBackupAvailable = backupAvailable;
+    }
 
     public TreasureInfo getTreasureInfo() {
         return treasureInfo;

@@ -28,7 +28,14 @@ public class MazeClientThread extends Thread {
 
             System.out.println("Server ready to accept requests.....");
 
-            new MazeClient("localhost", 9000, server).sendSomeMessages();
+            System.out.println("Server port is : " + server.getMazeSocket());
+
+            int portNumber = 9000;
+            if(server.getMazeSocket() != null){
+               portNumber = server.getMazeSocket().getLocalPort();
+            }
+
+            new MazeClient("localhost", portNumber, server).sendSomeMessages();
 
         } catch (Exception e) {
             System.out.println("Could not send the command to the server....");

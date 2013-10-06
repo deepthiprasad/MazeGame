@@ -1,7 +1,6 @@
 
 import java.io.*;
 import java.net.Socket;
-import java.net.SocketException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -19,9 +18,10 @@ public class BackupServerThread extends Thread {
     private CountDownLatch gameStartNotification;
     private CountDownLatch gameEndNotification;
     private Socket backupSocket;
+    private PeerMazeServer mazeServer;
 
     public BackupServerThread(Socket clientSocket, GameStatus gameStarted, Game game, CountDownLatch gameStartNotification,
-                              CountDownLatch gameEndNotification) throws IOException {
+                              CountDownLatch gameEndNotification, PeerMazeServer mazeServer) throws IOException {
         sock = clientSocket;
         sockInput = clientSocket.getInputStream();
         sockOutput = new BufferedOutputStream(clientSocket.getOutputStream());
@@ -31,6 +31,7 @@ public class BackupServerThread extends Thread {
         this.game = game;
         this.gameStartNotification = gameStartNotification;
         this.gameEndNotification = gameEndNotification;
+        this.mazeServer = mazeServer;
 
     }
 
@@ -39,21 +40,41 @@ public class BackupServerThread extends Thread {
     // socket is closed from the other side.
     public synchronized void run() {
 
+        int moveCounter=0;
+        boolean socketClosed = false;
         while (true) {
             try {
                 byte[] buf = new byte[4096];
                 try {
+                    System.out.println("Bckup server waiting for objects ...: ");
 
-                      ObjectInputStream objectInputStream = new ObjectInputStream(sockInput);
-                      Game game = (Game) objectInputStream.readObject();
-                    System.out.println("Grid received : " + game.getGrid());
+                    ObjectInputStream objectInputStream = new ObjectInputStream(sockInput);
+                    mazeServer.setGame((Game) objectInputStream.readObject());
+                    System.out.println("Players are : " + mazeServer.getGame().getPlayerList());
+                    System.out.println("Grid received for move : " + moveCounter++ + " \nTreasures remaining : " +mazeServer.getGame().getTreasureInfo().getTreasureRemaining());
 
-                } catch (SocketException socketException) {
-                    System.out.println("Player : " + player + " dropped off...");
-                    //TODO : Set the status of the player to inactive
+                } catch (Exception eofException) {
+                    //Startup the backup ServerSocket as the Primary Server as the Primary has dropped off.
+                    System.out.println("Primary went down... Starting the backup as the primary!");
+                    socketClosed = true;
+                    mazeServer.getGame().setBackupAvailable(false);
+                    for(Player newPlayer : mazeServer.getGame().getPlayerList()){
+                        if(newPlayer.getServerType().equalsIgnoreCase("Primary")){
+                            newPlayer.setStatus(StatusEnum.INACTIVE);
+                        }
+                        if(newPlayer.getServerType().equalsIgnoreCase("Backup")){
+                            newPlayer.setServerType("Primary");
+                        }
+                    }
+                    sock.close();
+                    //join the current player to this new primary server.
+                    System.out.println("Connecting the client to my own backup server...");
+                    CountDownLatch signalClientStart = new CountDownLatch(1);
+                    new MazeClientThread(signalClientStart, mazeServer).start();
+                    System.out.println("Started client connection to this backup....");
+                    startPrimaryServer(signalClientStart);
+                    System.out.println("Primary server started now....");
                     break;
-                } finally {
-
                 }
                 sockOutput.flush();
             } catch (Exception e) {
@@ -72,71 +93,9 @@ public class BackupServerThread extends Thread {
 
     }
 
-    private void checkForValidBackup() throws IOException {
-        if(game.getBackupPort()!=null && game.getBackupAddress()!=null){
-            game.setBackupAvailable(true);
-            backupSocket = new Socket(game.getBackupAddress(), Integer.parseInt(game.getBackupPort()));
-        }
-    }
-
-    private void sendACopyOfGame() throws Exception {
-        // Send the Grid object to the client
-        ObjectOutputStream gridTransferStream = new ObjectOutputStream(backupSocket.getOutputStream());
-        gridTransferStream.writeObject(game);
-        gridTransferStream.flush();
-    }
-
-    private boolean checkForValidMoves(String command) throws IOException {
-        if (!command.equalsIgnoreCase("N")
-                && !command.equalsIgnoreCase("S")
-                && !command.equalsIgnoreCase("E")
-                && !command.equalsIgnoreCase("W")
-                && !command.equalsIgnoreCase("NOMOVE")) {
-            String error = "Invalid Command, Enter [N, S, E, W, NOMOVE]";
-            sockOutput.write(error.getBytes(), 0, error.getBytes().length);
-            sockOutput.flush();
-            return true;
-        }
-        return false;
-    }
-
-    private void checkAndNotifyAboutGame(boolean alreadyNotifiedWaitStatus) throws IOException {
-        if (gameStatus.status != StatusEnum.GAME_STARTED) {
-            if (!alreadyNotifiedWaitStatus) {
-                //TODO: ignore the player inputs until the start of the game.
-                String gridString = "\nWaiting for the other players to join...";
-                sockOutput.write(gridString.getBytes(), 0, gridString.getBytes().length);
-                sockOutput.flush();
-            }
-        }
-    }
-
-    private void broadcastStartMessage(boolean alreadyNotifiedStart) throws IOException {
-        if (gameStatus.status == StatusEnum.GAME_STARTED && !alreadyNotifiedStart) {
-
-            String gridString = "Game has begun, start collecting your treasures as much as you can!...\n";
-            gridString += game.getGrid().toString();
-            sockOutput.write(gridString.getBytes(), 0, gridString.getBytes().length);
-            sockOutput.flush();
-            alreadyNotifiedStart = true;
-        }
-    }
-
-    private void moveAndCaptureTreasure(Cell cell) {
-        if (!cell.getData().contains("P")) {
-            if (cell.getData().contains("T")) {
-                int treasureRemaining = game.getTreasureInfo().getTreasureRemaining();
-                int currentCellTreasureValue = ServerHelper.getTreasureValue(cell);
-                player.setNumOfTreasuresFound(player.getNumOfTreasuresFound() + ServerHelper.getTreasureValue(cell));
-                game.getTreasureInfo().setTreasureRemaining(treasureRemaining - currentCellTreasureValue);
-                if (game.getTreasureInfo().getTreasureRemaining() == 0) {
-                    gameEndNotification.countDown();
-                }
-            }
-            player.getCurrentPosition().setData(" - ");
-            cell.setData("P" + player.getId());
-            player.setCurrentPosition(cell);
-        }
+    private void startPrimaryServer(CountDownLatch signalClientStart) throws Exception{
+        mazeServer.setPrimaryServerSocket(signalClientStart);
 
     }
+
 }
